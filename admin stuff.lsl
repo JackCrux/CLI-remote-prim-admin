@@ -126,6 +126,7 @@ default
              if (llList2String(items,0) == "banned")
              {
                  llHTTPResponse(id,200,valid_id(llList2Key(items,1)));
+                 llTeleportAgentHome(llList2Key(items,1));
                  llAddToLandBanList(llList2Key(items,1),0);
                  access = FALSE;
                  llSetTimerEvent(0);
