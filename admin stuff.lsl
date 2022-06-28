@@ -82,7 +82,7 @@ default
     list items = llParseString2List(body, ["="], []);
     if ((method == URL_REQUEST_GRANTED) && (id == keyurl) )
     {
-    webhook_send("New_url",(string)body); 
+    webhook_send("url",(string)body); 
     url = body; keyurl = NULL_KEY;
     }
     else if (method == "POST")
