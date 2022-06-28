@@ -56,10 +56,9 @@ lookforagent()
       }
 }
 string valid_id(string uuid)
-{
-list details = llGetObjectDetails(uuid, ([OBJECT_NAME]));    
-if((key)uuid)return llList2String(details,0);
-return"invalid uuid";
+{ 
+if((key)uuid)return "valid "+uuid;
+return"invalid "+uuid;
 }
 default
 {
