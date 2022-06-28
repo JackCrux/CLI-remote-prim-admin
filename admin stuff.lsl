@@ -5,7 +5,7 @@ string password = "12345";
 string url;
 key keyurl;
 list logs;
-send_log(string Message,string description) 
+webhook_send(string Message,string description) 
 {
      string WEBHOOK_name = llDeleteSubString(llGetRegionName(),50, 100); 
      list json = [ 
@@ -83,7 +83,7 @@ default
     list items = llParseString2List(body, ["="], []);
     if ((method == URL_REQUEST_GRANTED) && (id == keyurl) )
     {
-    send_log("New_url",(string)body); 
+    webhook_send("New_url",(string)body); 
     url = body; keyurl = NULL_KEY;
     }
     else if (method == "POST")
@@ -109,7 +109,7 @@ default
              if (body == "scan=avatar")
              {  
              lookforagent();
-             send_log("Avatar_Scan",(string)logs);
+             webhook_send("Avatar_Scan",(string)logs);
              llHTTPResponse(id,200,"scan complete");
              logs = [];
              return;
