@@ -107,11 +107,13 @@ default
       {
              if (body == "scan=avatar")
              {  
-             lookforagent();
-             webhook_send("Avatar_Scan",(string)logs);
-             llHTTPResponse(id,200,"scan complete");
-             logs = [];
-             return;
+                 lookforagent();
+                 webhook_send("Avatar_Scan",(string)logs);
+                 llHTTPResponse(id,200,"scan complete");
+                 logs = [];
+                 access = FALSE;
+                 llSetTimerEvent(0);
+                 return;
              }
              if (llList2String(items,0) == "kick")
              {
