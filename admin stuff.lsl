@@ -87,8 +87,10 @@ default
     }
     else if (method == "POST")
     {
-             if (llList2String(items,0) == "password")
-             {
+      if(access == FALSE)
+      {
+           if (llList2String(items,0) == "password")
+           {
                 if (password == llList2String(items,1))
                 {
                 llHTTPResponse(id,200,"access granted");
@@ -102,6 +104,7 @@ default
                 access = FALSE;
                 return;
                 }
+           }     
       }
       if(access == TRUE)
       {
