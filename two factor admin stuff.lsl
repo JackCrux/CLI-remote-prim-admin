@@ -118,7 +118,7 @@ default
                     webhook_send("verification code",generate_code);
                     authentication = generate_code;
                     llSetTimerEvent(timeout);
-                    verified0 = FALSE;
+                    verified0 = TRUE;
                     verified1 = TRUE;
                     return;
                     }
