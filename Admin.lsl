@@ -3,7 +3,7 @@ integer verified0 = FALSE;
 integer verified1 = FALSE;
 integer access = FALSE;
 integer timeout = 20;
-integer relay = 1374922;
+integer relay = 1002;
 string authentication;
 string url;
 key keyurl;
