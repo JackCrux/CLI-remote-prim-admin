@@ -1,4 +1,4 @@
-integer c = 1374922;
+integer c = 1002;
 default
 {
     on_rez(integer start_param) 
