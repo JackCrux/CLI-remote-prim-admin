@@ -83,12 +83,12 @@ attempts(key id)
 {
     if(attempt>limit_attempt)
     {
-    llHTTPResponse(id,200,"timeout request changing url");
+    llHTTPResponse(id,200,"too many attempts changing url.");
     llResetScript(); 
     }
     else
     {
-    llHTTPResponse(id,200,"authority denied");
+    llHTTPResponse(id,200,"access denied.");
     random();
     attempt = attempt + 1;  
     } 
