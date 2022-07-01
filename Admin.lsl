@@ -1,9 +1,11 @@
-string WEBHOOK_URL = "webhook_discord";
+string WEBHOOK_URL = "webhook";
+integer limit_attempt = 3;
 integer verified0 = FALSE;
 integer verified1 = FALSE;
 integer access = FALSE;
 integer timeout = 20;
 integer relay = 1002;
+integer attempt;
 string authentication;
 string url;
 key keyurl;
@@ -77,6 +79,20 @@ random()
     (string)((integer)llFrand(9));
     authentication = generate_code;
 }
+attempts(key id)
+{
+    if(attempt>limit_attempt)
+    {
+    llHTTPResponse(id,200,"timeout request changing url");
+    llResetScript(); 
+    }
+    else
+    {
+    llHTTPResponse(id,200,"authority denied");
+    random();
+    attempt = attempt + 1;  
+    } 
+}
 default
 {
     on_rez(integer start_param) 
@@ -132,6 +148,7 @@ default
                     verified0 = TRUE;
                     verified1 = FALSE;
                     access = TRUE;
+                    attempt = 0;
                     return;
                     }
              }
@@ -179,10 +196,8 @@ default
              }    
       }
       else
-      {     
-      llHTTPResponse(id,200,"authority denied");
-      random();
-      return;
+      {
+      attempts(id);
       }
 }
 timer()
