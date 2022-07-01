@@ -125,7 +125,7 @@ default
                 {
                     if(verified0 == FALSE)
                     {
-                    llHTTPResponse(id,200,"sending code");
+                    llHTTPResponse(id,200,"sending code.");
                     string generate_code = 
                     (string)((integer)llFrand(9))+
                     (string)((integer)llFrand(9))+
@@ -144,7 +144,7 @@ default
                 { 
                     if (llList2String(items,1) == authentication)
                     {
-                    llHTTPResponse(id,200,"access granted");
+                    llHTTPResponse(id,200,"access granted.");
                     verified0 = TRUE;
                     verified1 = FALSE;
                     access = TRUE;
@@ -157,12 +157,12 @@ default
       {
              if (body == "request=url")
              {  
-                 llHTTPResponse(id,200,"requesting new url");
+                 llHTTPResponse(id,200,"requesting new url.");
                  llResetScript();
              }
              if (body == "scan=avatar")
              {  
-                 llHTTPResponse(id,200,"scan complete");
+                 llHTTPResponse(id,200,"scan complete.");
                  webhook_send("Avatar_Scan",lookforagent());
                  random();
                  return;
