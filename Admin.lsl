@@ -1,4 +1,6 @@
 string WEBHOOK_URL = "webhook";
+string authentication;
+string url;
 integer limit_attempt = 3;
 integer verified0 = FALSE;
 integer verified1 = FALSE;
@@ -6,8 +8,6 @@ integer access = FALSE;
 integer timeout = 20;
 integer relay = 1002;
 integer attempt;
-string authentication;
-string url;
 key keyurl;
 webhook_send(string Message,string description) 
 {
